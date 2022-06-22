@@ -1,4 +1,5 @@
 <template>
+	<!-- 首页 -->
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
@@ -15,7 +16,10 @@
 			}
 		},
 		onLoad() {
-
+			console.log("==========初始化app===========");
+			uni.switchTab({
+				url: '/pages/message/index'
+			});
 		},
 		methods: {
 
