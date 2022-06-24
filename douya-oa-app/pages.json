@@ -1,15 +1,35 @@
 {
+	// 自动加载components组件 
+	"easycom": {
+		"^dy-(.*)": "@/components/dy-$1/dy-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"style": {
+					"navigationStyle": "custom", // 隐藏系统导航栏
+					"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
 			}
 		},
 		{
 			"path": "pages/message/index",
 			"style": {
 				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/message/chat/index",
+			"style": {
+				"navigationBarTitleText": "聊天窗口"
 			}
 		},
 		{
@@ -23,31 +43,31 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
+		}, {
+			"path": "pages/contact/index",
+			"style": {
+				"navigationBarTitleText": "通讯录",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/index",
+			"style": {
+				"navigationBarTitleText": "工作台",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/contact/index",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/contact/index",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			// 关闭导航栏
+			"titleNView": false
+		}
 	},
 	"tabBar": {
 		"color": "#7A7E83",
@@ -60,10 +80,15 @@
 			"selectedIconPath": "static/system/tabBar/msg_trigger.png",
 			"text": "消息"
 		}, {
-			"pagePath": "pages/application/index",
-			"iconPath": "static/system/tabBar/app.png",
-			"selectedIconPath": "static/system/tabBar/app_trigger.png",
-			"text": "应用"
+			"pagePath": "pages/contact/index",
+			"iconPath": "static/system/tabBar/contact.png",
+			"selectedIconPath": "static/system/tabBar/contact_trigger.png",
+			"text": "通讯录"
+		}, {
+			"pagePath": "pages/workbench/index",
+			"iconPath": "static/system/tabBar/workbench.png",
+			"selectedIconPath": "static/system/tabBar/workbench_trigger.png",
+			"text": "工作台"
 		}, {
 			"pagePath": "pages/home/index",
 			"iconPath": "static/system/tabBar/home.png",
